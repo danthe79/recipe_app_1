@@ -1,0 +1,28 @@
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: #a89a9a;
+}
+
+.collapse.navbar-collapse {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  padding: 10px;
+  gap: 25px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
