@@ -1,12 +1,14 @@
 
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shoppin-list.service';
 import { Recipe } from "./recipe.model";
+
 
 
 @Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+
   private recipes: Recipe[] = [
     new Recipe('Spaghetti bolognese',
       'Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce',
@@ -26,8 +28,18 @@ export class RecipeService {
       ])
   ];
 
+  constructor(private shoppingListService: ShoppingListService) { }
+
   getRecipes() {
     return this.recipes.slice();
   }
 
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    this.shoppingListService.addIngredients(ingredients);
+  }
 }
