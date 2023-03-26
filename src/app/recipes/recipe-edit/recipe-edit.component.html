@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
           <button type="submit" class="btn btn-success">Save</button>
@@ -11,7 +11,12 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" lass="form-comtrol" />
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-comtrol"
+            />
           </div>
         </div>
       </div>
@@ -19,7 +24,12 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="imagePath">Image URL</label>
-            <input type="text" id="imagePath" class="form-comtrol" />
+            <input
+              type="text"
+              id="imagePath"
+              formControlName="imagePath"
+              class="form-comtrol"
+            />
           </div>
         </div>
       </div>
@@ -36,17 +46,26 @@
               type="text"
               id="description"
               class="form-comtrol"
+              formControlName="description"
               rows="6"
             ></textarea>
           </div>
         </div>
       </div>
-      <div>
-        <ul clas="navbar-nav">
-          <li><input type="text" id="amount" class="form-comtrol" /></li>
-          <li><input type="number" id="number" class="form-comtrol" /></li>
-          <li><button class="btn btn-danger">X</button></li>
-        </ul>
+      <div class="row">
+        <div class="col-xs-12" formArrayName="ingredients">
+          <div class="row">
+            <div col-xs-12>
+              <ul class="navbar-nav">
+                <li><input type="text" id="amount" class="form-comtrol" /></li>
+                <li>
+                  <input type="number" id="number" class="form-comtrol" />
+                </li>
+                <li><button class="btn btn-danger" id="button">X</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   </div>
